@@ -1,0 +1,94 @@
+H. Ammar-utiful Array
+time limit per test1 second
+memory limit per test256 megabytes
+Ammar does not know how to set problems. Therefore, Coach Khaled felt pitty about Ammar and decided to put his name on one of his problems, which is this problem.
+
+We define an array of 𝑀
+ integers to be called an Ammar-utiful Array of Ammar-uty 𝑋
+ if the sum of all of its elements is less than or equal to 𝑋
+.
+
+Ammar will give you 𝑁
+ elements, such that each element 𝑖
+ is associated with value 𝐴𝑖
+ and color 𝐶𝑖
+. You need to process 𝑄
+ queries of the following forms:
+
+1𝐶𝑜𝑙𝑋
+: For each element 𝑖
+ (1≤𝑖≤𝑁)
+ such that 𝐶𝑖≠𝐶𝑜𝑙
+, increase 𝐴𝑖
+ by 𝑋
+.
+2𝐶𝑜𝑙𝑌
+: Consider an array 𝐵
+ that consists of elements with color equal to 𝐶𝑜𝑙
+, in the same original order that they appeared in array 𝐴
+. What is the length of the longest prefix 𝑃
+ (the prefix can be empty) of 𝐵
+ such that 𝑃
+ is an Ammar-utiful Array of Ammar-uty 𝑌
+. (It is guaranteed that there is at least one element whose color is equal to 𝐶𝑜𝑙
+).
+Input
+The first line of the input contains two integers 𝑁
+ (1≤𝑁≤2⋅105)
+.
+
+The second line of the input contains 𝑁
+ space-separated integers 𝐴1,𝐴2,⋯,𝐴𝑁
+ (1≤𝐴𝑖≤2⋅105)
+ — the values associated with the elements.
+
+The third line of the input contains 𝑁
+ space-separated integers 𝐶1,𝐶2,⋯,𝐶𝑁
+ (1≤𝐶𝑖≤2⋅105)
+ — the colors associated with the elements.
+
+The next line of the input contains an integer 𝑄
+ (1≤𝑄≤2⋅105)
+.
+
+Each line of the next 𝑄
+ lines contains three integers describing the queries.
+
+1𝐶𝑜𝑙𝑋
+: (1≤𝐶𝑜𝑙≤2⋅105)
+ (1≤𝑋≤105)
+ — the query of the first type.
+2𝐶𝑜𝑙𝑌
+: (1≤𝐶𝑜𝑙≤2⋅105)
+ (1≤𝑌≤1015)
+ — the query of the second type (It is guaranteed that there is at least one element whose color is equal to 𝐶𝑜𝑙
+).
+Output
+For each query of the second type, print a single line containing the length of the longest prefix 𝑃
+ of 𝐵
+ such that 𝑃
+ is an Ammar-utiful Array of Ammar-uty Y.
+
+Examples
+InputCopy
+5
+1 2 3 4 5
+2 1 2 1 2
+3
+1 1 2
+2 2 8
+2 1 5
+OutputCopy
+2
+1
+InputCopy
+5
+1 2 3 4 5
+2 1 2 1 2
+3
+2 2 9
+1 1 2
+2 2 9
+OutputCopy
+3
+2
