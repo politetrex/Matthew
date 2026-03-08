@@ -1,0 +1,3 @@
+#include <iostream>
+#include <vector>
+using namespace std;int main(){    int n; cin>>n;  bool all1=1;  vector<int> pfx(n+1, 0);    {        int temp;        for(int i=1; i<=n; i++){            cin>>temp;      all1&=temp;      pfx[i]=pfx[i-1]+temp;        }    }  if (all1){cout<<n-1; return 0;}  int max1 = pfx[n];    for(int i=1; i<=n; i++)for(int j=i; j<=n; j++)    /* !IMPORTANT: That is MATH */    max1=max(max1, pfx[i-1]*2+pfx[n]-pfx[j]*2+j-i+1);    cout<<max1; return 0; }
