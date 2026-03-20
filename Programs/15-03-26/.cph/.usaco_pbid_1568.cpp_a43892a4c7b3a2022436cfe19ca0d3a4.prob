@@ -1,0 +1,1 @@
+{"name":"Local: usaco_pbid_1568","url":"/Users/T-rex/Documents/Matthew/Programs/15-03-26/usaco_pbid_1568.cpp","tests":[{"id":1773585897221,"input":"6\n1 2 3 1 3 4","output":"4 3 3 4 3 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/T-rex/Documents/Matthew/Programs/15-03-26/usaco_pbid_1568.cpp","group":"local","local":true}

@@ -1,0 +1,8 @@
+Baby newBaby1(){
+    return Chloe & Oliver;
+}
+
+int main(){
+    Oliver.concentrate();
+    Return results;
+}
