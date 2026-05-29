@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://cses.fi/problemset/task/1745 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet " type="text/css" href="./CSES - Money Sums_files/cses.css" id="styles">
+  <link rel="stylesheet alternate" type="text/css" href="./CSES - Money Sums_files/cses-dark.css" id="styles-dark">
+  <meta name="theme-color" content="white" id="theme-color">
+  <script type="application/json" id="darkmode-enabled">false</script>
+  <script src="./CSES - Money Sums_files/ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="./CSES - Money Sums_files/all.min.css">
+  <title>CSES - Money Sums</title><link rel="stylesheet" type="text/css" href="./CSES - Money Sums_files/prettify.css"></head>
+<body class="with-sidebar norm-width">
+  <div class="header">
+    <div>
+      <a href="https://cses.fi/" class="logo"><img src="./CSES - Money Sums_files/logo.png" alt="CSES"></a>
+      <a class="menu-toggle" onclick="document.body.classList.toggle(&#39;menu-open&#39;);">
+        <i class="fas fa-bars"></i>
+      </a>
+      <div class="controls">
+                <a class="account" href="https://cses.fi/user/406970">politetrex</a>
+        <span>—</span>
+                        <a href="https://cses.fi/darkmode" title="Toggle dark mode" onclick="return toggle_theme()"><i aria-label="Dark mode" class="fas fa-adjust"></i><span>Dark mode</span></a>
+                <a href="https://cses.fi/logout" title="Log out"><i aria-label="Log out" class="fas fa-sign-out-alt"></i><span>Log out</span></a>
+              </div>
+    </div>
+  </div>
+  <div class="skeleton">
+  <div class="navigation">
+    <div class="title-block">
+                <h3><a href="https://cses.fi/problemset/list/">CSES Problem Set</a></h3>
+                <h1>Money Sums</h1>
+        <ul class="nav">
+<li><a href="https://cses.fi/problemset/task/1745/" class="current">Task</a></li>
+<li><a href="https://cses.fi/problemset/submit/1745/">Submit</a></li>
+<li><a href="https://cses.fi/problemset/view/1745/">Results</a></li>
+<li><a href="https://cses.fi/problemset/stats/1745/">Statistics</a></li>
+<li><a href="https://cses.fi/problemset/tests/1745/">Tests</a></li>
+</ul>
+    </div>
+    </div>
+
+<div class="content-wrapper">
+<div class="content">
+
+<link rel="stylesheet" href="./CSES - Money Sums_files/katex.min.css">
+<script defer="" src="./CSES - Money Sums_files/katex.min.js"></script>
+<script defer="" src="./CSES - Money Sums_files/copy-tex.min.js"></script>
+
+<script>
+addEventListener("DOMContentLoaded", function (e) {
+    const mathElements = document.getElementsByClassName("math");
+    const macros = {};
+    for (let element of mathElements) {
+        katex.render(element.textContent, element, {
+            displayMode: element.classList.contains("math-display"),
+            throwOnError: false,
+            globalGroup: true,
+            macros,
+        });
+    }
+});
+</script>
+<ul class="task-constraints">
+<li><b>Time limit:</b> 1.00 s</li>
+<li><b>Memory limit:</b> 512 MB</li>
+</ul>
+<div class="md"><p>You have <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span> coins with certain values. Your task is to find all money sums you can create using these coins.</p>
+<h1 id="input">Input</h1>
+<p>The first input line has an integer <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span>: the number of coins.</p>
+<p>The next line has <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span> integers <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1,x_2,\dots,x_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span>: the values of the coins.</p>
+<h1 id="output">Output</h1>
+<p>First print an integer <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6944em;"></span><span class="mord mathnormal" style="margin-right: 0.0315em;">k</span></span></span></span></span>: the number of distinct money sums. After this, print all possible sums in increasing order.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">1 \le n \le 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.7804em; vertical-align: -0.136em;"></span><span class="mord">1</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.7719em; vertical-align: -0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">100</span></span></span></span></span></li>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>x</mi><mi>i</mi></msub><mo>≤</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">1 \le x_i \le 1000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.7804em; vertical-align: -0.136em;"></span><span class="mord">1</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.786em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">1000</span></span></span></span></span></li>
+</ul>
+<h1 id="example">Example</h1>
+<p>Input:</p>
+<pre>4
+4 2 5 2
+</pre>
+<p>Output:</p>
+<pre>9
+2 4 5 6 7 8 9 11 13
+</pre></div>
+</div>
+
+<div class="nav sidebar">
+<h4>Dynamic Programming</h4>...
+<a href="https://cses.fi/problemset/task/3403">Longest Common Subsequence<span class="task-score icon "></span></a><a href="https://cses.fi/problemset/task/1744">Rectangle Cutting<span class="task-score icon "></span></a><a href="https://cses.fi/problemset/task/3359">Minimal Grid Path<span class="task-score icon "></span></a><a class="current" href="https://cses.fi/problemset/task/1745">Money Sums<span class="task-score icon "></span></a><a href="https://cses.fi/problemset/task/1097">Removal Game<span class="task-score icon "></span></a><a href="https://cses.fi/problemset/task/1093">Two Sets II<span class="task-score icon "></span></a><a href="https://cses.fi/problemset/task/3314">Mountain Range<span class="task-score icon "></span></a><a href="https://cses.fi/problemset/task/1145">Increasing Subsequence<span class="task-score icon "></span></a>...
+<hr>    <h4>Your submissions</h4>
+
+    </div>
+
+
+</div>
+
+  </div>
+
+
+</body></html>

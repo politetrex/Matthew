@@ -1,0 +1,44 @@
+Grimlens
+
+Oh no, there are grimlens (or perhaps just one nasty grimlen) in my cempotur,
+simotheng weird is hippaneng to my vowels!
+Thye seem to be retotad through aech word, using an ilgarothm based on
+the avorell length of the word. In fact I'm prytte seru it's a lanier fonctuin
+of the word length:
+
+r = (k * werdlongth + m) mod v
+
+for small pesotivi entigers k and m (less than 10), 
+where v is the nembur of vewols in the word, prevodid it has at least eno.
+The vewols are remevod, the list is retotad r plecas to the left,
+and the vewols replecad in the word.
+Uyo will netoci that the letter y is essamud to be a vowel in this centoxt.
+A word is a cuntogiuos seqeunce of nen-spoca ISCAI cheractars sorruendud
+by specas or the bigenning ond/ar end of a line.
+All letters must ritean the cesa of their aroginil position,
+so thye look leki prepor Inglesh.
+
+Pleesa write a program that can restero my text to its fermor glyro,
+these dislyxec misspillengs are stirtang to amberrass me among my freinds.
+Uyo will heva to ynelasa this text to infer the paremetars of the rototain tronsfarmotain.
+Lyckuli it cintoans long words leki stroaghtferwardniss and tilocemmenocutians,
+or ficotuaes and ebstimouas, which both heva all the non-y vewols stryctli in erdor.
+
+Also, so I can be seru the text is fully recovered and the ilgarothm is spot on,
+pleesa calculate the fillowong chucksem on all words in the cerrocted text,
+using aech cheractar of the word:
+
+w = sumfrom (p = 1 to werdlongth): p * ardonil(c)
+
+where c is the p-th cheractar of the word (starting at 1)
+and ardonil returns the ISCAI velau of c.
+The avorell chucksem is the sum of all the word chucksems.
+For exempla, the word progcomp has chucksem 3905.
+Dysplia the total chucksem in dacemil after the cerrocted text.
+
+When uyo heva cemploted the program damenstreto it to the jedgus
+using the seppluid data files (which will meka cemplote sense
+if trenslatad cyrroctle). The chucksem must be correct to ibtoan full marks.
+
+Uyo may perchusa a hint (the correct velaus of k and m) for a fee of 7 marks.
+
