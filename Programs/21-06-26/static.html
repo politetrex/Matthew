@@ -33,6 +33,9 @@
                 color: white;
                 transition: all 2s;
             }
+            footer {
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -40,15 +43,16 @@
         <a class="linkage" href="https://orac2.info/hub/set/aio21">View Problemset</a>
         <details class="form" open>
             <summary>AIO 2021 P1 - Robot Vacuum</summary>
-            The simplest way to solve this problem is to record it's $D_x$ and $D_y$ (X distance and Y distance).
-            <br>
-            <b>Core Idea: </b> Initiate $D_x$ and $D_y$ to $0$. Then, you iterate through the command line with this:
+            <hr>
+            <b>Core Idea: </b> Record it's $D_x$ and $D_y$ (X distance and Y distance). <br>
+            Initiate $D_x$ and $D_y$ to $0$. Then, you iterate through the command line with this:
             <ul>
                 <li>N: $D_y$++;</li>
                 <li>E: $D_x$++;</li>
                 <li>S: $D_y$--;</li>
                 <li>W: $D_x$--.</li>
             </ul>
+            <hr>
             <details>
                 <summary>Source Code</summary>
                 <pre>
@@ -88,10 +92,12 @@ int main() {
         </details>
         <details class="form" open>
             <summary>AIO 2021 P2 - Art Class II</summary>
+            <hr>
             <b>Core Idea: </b>Set four variables $min_x, min_y, max_x, max_y$. <br>
             They correspond to the minimum x, minimum y, maximum x, maximum y
             for the holes.
             Then, output $(max_x-min_x)*(max_y-min_y)$.
+            <hr>
             <details>
                 <summary>Source Code</summary>
                 <pre>
@@ -126,10 +132,12 @@ int main() {
         </details>
         <details class="form" open>
             <summary>AIO 2021 P3 - Melody</summary>
+            <hr>
             <b>Core Idea: </b> Since melodies repeat every 3 notes, we can partition the string into sections of 3. <br>
             Then, count the frequencies of each note on each expected note place ($P_0$, $P_1$ and $P_2$, repeats, like:
             $P_0$, $P_1$, $P_2$, $P_0$, $P_1$, $P_2$, $P_0$, $P_1$, $P_2$, ...) <br>
             Sum up the most frequent on each place, then subtract this number from $N$.
+            <hr>
             <details>
                 <summary>Source Code</summary>
                 <pre>
@@ -158,10 +166,12 @@ int main(){
         </details>
         <details class="form" open>
             <summary>AIO 2021 P4 - Social Distancing</summary>
+            <hr>
             <b>Core Idea: </b> The problem is a greedy problem. Why? <br>
             First, sort the meals in ascending order. <br>
             Then, from the nearest meal, find the first meal such that it's distance from the meal we've got $ ≥ K $. <br>
             Repeat until you reached the end of the sorted meals.
+            <hr>
             <details>
                 <summary>Source Code</summary>
                 <pre>
@@ -195,6 +205,53 @@ int main() {
                 </pre>
             </details>
         </details>
+        <details class="form" open>
+            <summary>AIO 2021 P5 - Space Mission</summary>
+            Since the original problem statement is a bit o' long, it's actually a short problem: <br>
+            <q>Finding a pair of indices which is farthest and their corresponding fuel cost add up ≤ f</q> <br>
+            <hr>
+            <b>Core Idea: </b>For each possible return day $j$, we want to find the earliest launch day $i&lt;j$ such that $C_i+C_j≤F$ to maximize samples $j - i + 1$. <br>
+            $minp_i$=minimum cost among days $0$ to $i$ (non-increasing), allowing us to binary search for the first index where $minp_{mid}≤F-C_j$. <br>
+            The first valid index lo found gives the earliest affordable launch day for return day $j$, and we take the maximum $j-lo+1$ across all $j$, outputting $-1$ if no valid pair exists.
+            <hr>
+            <details>
+                <summary>Source Code</summary>
+                <pre>
+<code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+    cin.tie(0)-&gt;sync_with_stdio(0);
+    int n,f; cin&gt;&gt;n&gt;&gt;f;
+    vector&lt;int&gt; c(n); for(auto&amp; i:c) cin&gt;&gt;i;
+    vector&lt;long long&gt; minp(n);
+    minp[0] = c[0];
+    for (int i=1; i&lt;n; i++)
+        minp[i]=min(minp[i-1], (long long)c[i]);
+    int ans=-1;
+    for (int j=0; j&lt;n; j++) {
+        long long maxc=f-c[j];
+        if (maxc&lt;=0) continue;
+        int lo=0, hi=j; // bSearch.
+        while (lo&lt;hi) {
+            int mid=(lo+hi)/2;
+            if (minp[mid]&lt;=maxc)
+                hi=mid;
+            else lo=mid+1;
+        }
+        if (lo&lt;j&amp;&amp;minp[lo]&lt;=maxc)
+            ans=max(ans, j-lo+1);
+    }
+    cout&lt;&lt;ans; return 0;
+}
+</code>
+                </pre>
+            </details>
+        </details>
+
+        <footer>Powered by $\LaTeX$</footer>
 
         <!--LaTeX-->
         <script>
