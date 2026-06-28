@@ -1,0 +1,77 @@
+// Starter Code Templates
+
+{
+    "Code template for C++": {
+        "scope": "cpp",
+        "prefix": "_tmpbasic",
+        "body": [
+            "#include <iostream>",
+            "#include <vector>",
+            "",
+            "using namespace std;",
+            "",
+            "int main() {",
+            "\tcin.tie(0)->sync_with_stdio(0);",
+            "\t${1://solution}",
+            "\treturn 0;",
+            "}"
+        ]
+    },
+
+    "Codeforces code template for C++": {
+        "scope": "cpp",
+        "prefix": "_tmpbasiccf",
+        "body": [
+            "#include <iostream>",
+            "#include <vector>",
+            "",
+            "using namespace std;",
+            "",
+            "void solve() {",
+            "\t${1://solution}",
+            "}",
+            "",
+            "int main() {",
+            "\tcin.tie(0)->sync_with_stdio(0);",
+            "\t",
+            "\tint t;",
+            "\tcin>>t;",
+            "\twhile(t--)solve();",
+            "\treturn 0;",
+            "}"
+        ]
+    },
+
+    "Codeforces code template for Python": {
+        "scope": "python",
+        "prefix": "_tmpbasiccf",
+        "body": [
+            "def solve():",
+            "\t${1:pass #solution}",
+            "",
+            "if __name__ == '__main__':",
+            "\tt = int(input())",
+            "\twhile t > 0:",
+            "\t\tsolve()",
+            "\t\tt -= 1"
+        ]
+    },
+
+    "File I/O code template for C++": {
+        "scope": "cpp",
+        "prefix": "_tmpfileio",
+        "body": [
+            "#include <iostream>",
+            "#include <vector>",
+            "",
+            "using namespace std;",
+            "",
+            "int main() {",
+            "\tfreopen(\"${1:input.in}\",\"r\",stdin);",
+            "\tfreopen(\"${2:output.out}\",\"w\",stdout);",
+            "\t${3://solution}",
+            "\treturn 0;",
+            "}"
+        ]
+    }
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Problem Solutions for AIO 2021</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
+        <style>
+            details.form {
+                border: 2px solid black;
+                background-color: #fafafa;
+                padding: 10px;
+                margin: 5px;
+                /* transition: all 3s; */
+                border-radius: 4px;
+            }
+            details.form details{
+                padding: 3px;
+                margin: 2px;
+            }
+            details.form details:open{
+                border-left: 2px solid blue;
+                margin: 0px;
+            }
+            a.linkage {
+                background-color: lightblue;
+                margin: 5px;
+                padding: 3px;
+                border-radius: 2px;
+                /* opacity: 50%; */
+                text-decoration: none;
+                color: white;
+                transition: all 2s;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Problem Solutions for AIO 2021</h1>
+        <a class="linkage" href="https://orac2.info/hub/set/aio21">View Problemset</a>
+        <details class="form" open>
+            <summary>AIO 2021 P1 - Robot Vacuum</summary>
+            The simplest way to solve this problem is to record it's $D_x$ and $D_y$ (X distance and Y distance).
+            <br>
+            <b>Core Idea: </b> Initiate $D_x$ and $D_y$ to $0$. Then, you iterate through the command line with this:
+            <ul>
+                <li>N: $D_y$++;</li>
+                <li>E: $D_x$++;</li>
+                <li>S: $D_y$--;</li>
+                <li>W: $D_x$--.</li>
+            </ul>
+            <details>
+                <summary>Source Code</summary>
+                <pre>
+<code>#include &lt;iostream&gt;
+using namespace std;
+
+void p1() {
+    freopen(&quot;robotin.txt&quot;, &quot;r&quot;, stdin);
+    freopen(&quot;robotout.txt&quot;, &quot;w&quot;, stdout);
+    
+    int len;
+    cin &gt;&gt; len;
+    
+    int horizontal = 0, vertical = 0;
+    
+    for (int i = 0; i &lt; len; i++) {
+        char ch;
+        cin &gt;&gt; ch;
+        
+        switch (ch) {
+            case 'E': horizontal++; break;
+            case 'W': horizontal--; break;
+            case 'N': vertical++; break;
+            case 'S': vertical--; break;
+        }
+    }
+    
+    cout &lt;&lt; (abs(horizontal) + abs(vertical)) &lt;&lt; endl;
+}
+
+int main() {
+    p1();
+    return 0;
+}</code>
+                </pre>
+            </details>
+        </details>
+        <details class="form" open>
+            <summary>AIO 2021 P2 - Art Class II</summary>
+            <b>Core Idea: </b>Set four variables $min_x, min_y, max_x, max_y$. <br>
+            They correspond to the minimum x, minimum y, maximum x, maximum y
+            for the holes.
+            Then, output $(max_x-min_x)*(max_y-min_y)$.
+            <details>
+                <summary>Source Code</summary>
+                <pre>
+<code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    
+    int minx = 0x3fffffff, maxx = 0;
+    int miny = 0x3fffffff, maxy = 0;
+    
+    while (n--) {
+        int x, y;
+        cin &gt;&gt; x &gt;&gt; y;
+        
+        minx = min(minx, x);
+        maxx = max(maxx, x);
+        miny = min(miny, y);
+        maxy = max(maxy, y);
+    }
+    
+    int area = (maxx - minx) * (maxy - miny);
+    cout &lt;&lt; area;
+    
+    return 0;
+}</code>
+                </pre>
+            </details>
+
+        </details>
+        <details class="form" open>
+            <summary>AIO 2021 P3 - Melody</summary>
+            <b>Core Idea: </b> Since melodies repeat every 3 notes, we can partition the string into sections of 3. <br>
+            Then, count the frequencies of each note on each expected note place ($P_0$, $P_1$ and $P_2$, repeats, like:
+            $P_0$, $P_1$, $P_2$, $P_0$, $P_1$, $P_2$, $P_0$, $P_1$, $P_2$, ...) <br>
+            Sum up the most frequent on each place, then subtract this number from $N$.
+            <details>
+                <summary>Source Code</summary>
+                <pre>
+<code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main(){
+    int n, k, tot=0; cin&gt;&gt;n&gt;&gt;k;
+    vector&lt;vector&lt;int&gt;&gt; mfreq(3,vector&lt;int&gt;(k+1,0));
+    for(int i=0;i&lt;n;i++){
+        int x; cin&gt;&gt;x;
+        mfreq[i%3][x]++;
+    }
+    for(int i=0;i&lt;3;i++){
+        int maxn=-1;
+        for(int j=1;j&lt;=k;j++){
+            maxn=max(maxn,mfreq[i][j]);
+        }
+        tot+=maxn;
+    }
+    cout&lt;&lt;n-tot; return 0;
+}
+</code>
+                </pre>
+            </details>
+        </details>
+        <details class="form" open>
+            <summary>AIO 2021 P4 - Social Distancing</summary>
+            <b>Core Idea: </b> The problem is a greedy problem. Why? <br>
+            First, sort the meals in ascending order. <br>
+            Then, from the nearest meal, find the first meal such that it's distance from the meal we've got $ ≥ K $. <br>
+            Repeat until you reached the end of the sorted meals.
+            <details>
+                <summary>Source Code</summary>
+                <pre>
+<code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+ 
+using namespace std;
+ 
+int main() {
+    cin.tie(0)-&gt;sync_with_stdio(0);
+    int n, k;
+    cin&gt;&gt;n&gt;&gt;k;
+    vector&lt;int&gt; a(n);
+    for(int i=0; i&lt;n; i++)cin&gt;&gt;a[i];
+    sort(a.begin(), a.end());
+ 
+    int count=0, prev=0-k;
+    for(int i=0; i&lt;n; i++){
+        if(a[i]-prev&gt;=k){
+            count++;
+            prev=a[i];
+        }
+    }
+ 
+    cout&lt;&lt;count&lt;&lt;endl;
+ 
+    return 0;
+}
+</code>
+                </pre>
+            </details>
+        </details>
+
+        <!--LaTeX-->
+        <script>
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$', right: '$', display: false},
+                    {left: '$$', right: '$$', display: true},
+                    {left: '\\(', right: '\\)', display: false}
+                ]
+            });
+        </script>
+    </body>
+</html>
